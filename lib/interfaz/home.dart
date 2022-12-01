@@ -1,9 +1,6 @@
 import 'package:chat_app/controlador/autenticacion.dart';
-import 'package:chat_app/interfaz/Sign_in/inicio_sesion.dart';
-import 'package:chat_app/interfaz/Sign_in/registrarse.dart';
 import 'package:chat_app/interfaz/Sign_in/start.dart';
 import 'package:chat_app/interfaz/chat.dart';
-import 'package:chat_app/interfaz/login.dart';
 import 'package:flutter/material.dart';
 
 class MyApp extends StatelessWidget {
@@ -19,16 +16,13 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       debugShowCheckedModeBanner: false,
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-
-  final String title;
+  const MyHomePage({super.key});
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
@@ -44,9 +38,9 @@ class _MyHomePageState extends State<MyHomePage> {
       stream: Autenticacion().estadoLogin,//a las variabes de flujo hay que asignarles un cambio de estado basado en autenticacion
       builder: (context, respuesta){
         if(respuesta.hasData){//si respuesta trae informaicon
-          return registrarse();
+          return chat();
         } else {
-          return registrarse();
+          return start();
         }
       }
     );
