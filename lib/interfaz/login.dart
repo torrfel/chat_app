@@ -11,7 +11,6 @@ class login extends StatefulWidget {
 class _loginState extends State<login> {
   final email  = TextEditingController();
   final password = TextEditingController();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

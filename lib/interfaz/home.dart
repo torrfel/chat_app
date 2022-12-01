@@ -1,4 +1,6 @@
 import 'package:chat_app/controlador/autenticacion.dart';
+import 'package:chat_app/interfaz/Sign_in/inicio_sesion.dart';
+import 'package:chat_app/interfaz/Sign_in/registrarse.dart';
 import 'package:chat_app/interfaz/Sign_in/start.dart';
 import 'package:chat_app/interfaz/chat.dart';
 import 'package:chat_app/interfaz/login.dart';
@@ -42,9 +44,9 @@ class _MyHomePageState extends State<MyHomePage> {
       stream: Autenticacion().estadoLogin,//a las variabes de flujo hay que asignarles un cambio de estado basado en autenticacion
       builder: (context, respuesta){
         if(respuesta.hasData){//si respuesta trae informaicon
-          return start();
+          return registrarse();
         } else {
-          return start();
+          return registrarse();
         }
       }
     );
