@@ -31,12 +31,15 @@ class _startState extends State<start> {
       child: Container(
         child: Column(
           children: [
-            Image.network('https://img.freepik.com/vector-premium/trabajo-equipo-reunion-negocios-isometrica-gente-hablando-proyecto-mesa-o-proceso-trabajo-ilustracion-vector-lluvia-ideas-reunion-trabajo-equipo-negocios-gente-conversacion-3d-oficina_53562-13141.jpg'),
+            Image.network(
+              'https://img.freepik.com/vector-premium/trabajo-equipo-reunion-negocios-isometrica-gente-hablando-proyecto-mesa-o-proceso-trabajo-ilustracion-vector-lluvia-ideas-reunion-trabajo-equipo-negocios-gente-conversacion-3d-oficina_53562-13141.jpg',
+              height: 300,),
+              
             Center(
               
               child: Container(
                 padding: EdgeInsets.only(
-                  top: 80,
+                  top: 20,
                   left: 20,
                   right: 20
                 ),
@@ -72,7 +75,7 @@ class _startState extends State<start> {
             ),
             Container(
               padding: EdgeInsets.only(
-                top: 50,
+                top: 30,
                 bottom: 10),
               
               child: ElevatedButton(

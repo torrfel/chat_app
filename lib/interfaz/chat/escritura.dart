@@ -16,14 +16,17 @@ final foco = FocusNode();
 class _escrituraState extends State<escritura> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Stack(
+    return 
+       Stack(
         children: [
           Container(
           margin: EdgeInsets.only(top: 460),
             decoration: BoxDecoration(
               color: Colors.white,
-              borderRadius: BorderRadius.circular(20)
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(20),
+                topRight: Radius.circular(20)
+              )
               
           ),
           child: Container(
@@ -83,7 +86,7 @@ class _escrituraState extends State<escritura> {
     
       ],
         
-      ),
-    );
+      );
+    
   }
 }
