@@ -40,26 +40,39 @@ class _mensajesState extends State<mensajes> {
           itemBuilder: (BuildContext context, int index) {
             return 
               Card(
+                margin: (Autenticacion().usuarios?.email.toString() == 
+                    respuesta.data!.docs[index]
+                        .get('email')
+                        .toString()
+                    ? EdgeInsets.only(
+                      right: 10,
+                      left: 70,
+                      top: 10)
+                    : EdgeInsets.only(
+                      left: 10,
+                      right: 70,
+                      top: 10)),
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
                 color: 
                    (Autenticacion().usuarios?.email.toString() == 
                     respuesta.data!.docs[index]
                         .get('email')
                         .toString()
-                    ? Colors.grey
-                    : Colors.green),
+                    ? Color.fromARGB(255, 137, 77, 189)
+                    : Colors.white),
                 child: ListTile(
                   title: Text(
                     respuesta.data?.docs[index].get("mensaje"),
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 12
+                    ),
                     textAlign: (Autenticacion().usuarios?.email.toString() == 
                     respuesta.data!.docs[index].get('email')
                       ? TextAlign.right
                       : TextAlign.left)
                   ),
-                  subtitle: Text(respuesta.data?.docs[index].get("email"),
-                  textAlign: (Autenticacion().usuarios?.email).toString() == 
-                    respuesta.data!.docs[index].get('email')
-                      ? TextAlign.right
-                      : TextAlign.left),
+                  
 
                   onTap: (){   
                     Alert(
