@@ -40,49 +40,57 @@ class _chatState extends State<chat> {
 
       body: Column(
         children: [
-          Row(
-            children: [
-              Expanded(
-                
-                child: TextField(
-                  focusNode: foco,
-                  controller: mensaje,
-                  decoration: InputDecoration(
-                    hintText: 'Mensaje'
-                  ),
-
-                onSubmitted: (value) {
-                  foco.requestFocus();
-                  if (mensaje.text.isNotEmpty){
-                    mensaje.text = value;
-                    fire.collection('Chat').doc().set({
-                      "mensaje": mensaje.text,
-                      "tiempo": DateTime.now(),
-                      "email": (Autenticacion().usuarios?.email).toString()
-                    });
-                    mensaje.clear();
-                  }
-                },
-                ),
-              ),
-              IconButton(
-                onPressed: (){
-
-                  if (mensaje.text.isNotEmpty){
-                    fire.collection('Chat').doc().set({
-                      "mensaje": mensaje.text,
-                      "tiempo": DateTime.now(),
-                      "email": (Autenticacion().usuarios?.email).toString()
-                    });
-                    mensaje.clear();
-                  }
-                }, 
-                icon: Icon(Icons.send))
-            ],
-          ),
           Container(
             child: Expanded(child: mensajes()),
-          )
+          ),
+          Padding(
+            padding: const EdgeInsets.only(
+              left: 20,
+              right: 20,
+              bottom: 30
+            ),
+            child: Row(
+              children: [
+                Expanded(
+                  
+                  child: TextField(
+                    focusNode: foco,
+                    controller: mensaje,
+                    decoration: InputDecoration(
+                      hintText: 'Mensaje'
+                    ),
+
+                  onSubmitted: (value) {
+                    foco.requestFocus();
+                    if (mensaje.text.isNotEmpty){
+                      mensaje.text = value;
+                      fire.collection('Chat').doc().set({
+                        "mensaje": mensaje.text,
+                        "tiempo": DateTime.now(),
+                        "email": (Autenticacion().usuarios?.email).toString()
+                      });
+                      mensaje.clear();
+                    }
+                  },
+                  ),
+                ),
+                IconButton(
+                  onPressed: (){
+
+                    if (mensaje.text.isNotEmpty){
+                      fire.collection('Chat').doc().set({
+                        "mensaje": mensaje.text,
+                        "tiempo": DateTime.now(),
+                        "email": (Autenticacion().usuarios?.email).toString()
+                      });
+                      mensaje.clear();
+                    }
+                  }, 
+                  icon: Icon(Icons.send))
+              ],
+            ),
+          ),
+          
         ],
       ),
     );
