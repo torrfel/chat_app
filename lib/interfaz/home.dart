@@ -1,7 +1,7 @@
 import 'package:chat_app/controlador/autenticacion.dart';
 import 'package:chat_app/interfaz/Sign_in/start.dart';
 import 'package:chat_app/interfaz/chat.dart';
-import 'package:chat_app/interfaz/chat/escritura.dart';
+import 'package:chat_app/interfaz/chat/sala_chat.dart';
 import 'package:flutter/material.dart';
 
 class MyApp extends StatelessWidget {
@@ -39,9 +39,9 @@ class _MyHomePageState extends State<MyHomePage> {
       stream: Autenticacion().estadoLogin,//a las variabes de flujo hay que asignarles un cambio de estado basado en autenticacion
       builder: (context, respuesta){
         if(respuesta.hasData){//si respuesta trae informaicon
-          return escritura();
+          return salaChat();
         } else {
-          return escritura();
+          return salaChat();
         }
       }
     );
